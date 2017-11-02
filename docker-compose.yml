@@ -1,9 +1,11 @@
 version: '2'
 services:
   db_invites:
-    image: mysql
+    image: mariadb
     ports:
       - "4005:3306"
+    expose:
+      - "4005"
     environment:
       MYSQL_USER: invites_user
       MYSQL_ROOT_PASSWORD: 1234
@@ -24,10 +26,14 @@ services:
       MYSQL_ROOT_PASSWORD: 1234
     ports:
       - '5000:80'
+    expose:
+      - "5000"
   ms_invites:
     build: .
     ports:
       - '3005:80'
+    expose:
+      - "3005"
     depends_on:
       - db_invites
   mailhog:
