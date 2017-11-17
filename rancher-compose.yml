@@ -1,3 +1,14 @@
 version: '2'
-sa-ms-invites:
-  scale:1
+services:
+  db-invites:
+    scale: 1
+    start_on_create: true
+  phpmyadmin:
+    scale: 1
+    start_on_create: true
+  ms-invites:
+    scale: 1
+    start_on_create: true
+  mailhog:
+    scale: 1
+    start_on_create: true
